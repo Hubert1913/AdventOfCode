@@ -1,6 +1,3 @@
-import copy
-
-
 def main():
     inp = open("data.in").readlines()
 
@@ -82,10 +79,10 @@ def main_part_2():
         for j in range(len(maze[0])):
             if maze[i][j] == "#" or [j, i] == guard:
                 continue
-            maze_cop = copy.deepcopy(maze)
-            maze_cop[i][j] = "#"
-            if simulate(maze_cop, guard):
+            maze[i][j] = "#"
+            if simulate(maze, guard):
                 total += 1
+            maze[i][j] = "."
 
     print(total)
 
